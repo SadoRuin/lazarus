@@ -101,10 +101,6 @@ public class LogServiceImpl implements LogService{
 				.endTime(LocalDateTime.now())
 				.spentTime(spentTime)
 				.build();
-
-			gameInfo.get().setEndTime(LocalDateTime.now());
-			gameInfo.get().setGameStatus(GameStatus.NORMAL_END);
-			gameInfoRepository.save(gameInfo.get());
 		}else{
 			Long spentTime = gameInfo.get().getStartTime().until(LocalDateTime.now(), ChronoUnit.SECONDS);
 
@@ -117,6 +113,9 @@ public class LogServiceImpl implements LogService{
 				.build();
 		}
 
+		gameInfo.get().setEndTime(LocalDateTime.now());
+		gameInfo.get().setGameStatus(GameStatus.NORMAL_END);
+		gameInfoRepository.save(gameInfo.get());
 		inGameClearLogRepository.save(inGameClearLog);
 	}
 
