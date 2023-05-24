@@ -32,7 +32,7 @@ public class GameInfoController {
 	@Operation(summary = "게임 시작", description = "게임 시작 메소드, "
 		+ "gameId : 방의 고유한 UUID 를 넣어주면 됩니다"
 		+ "users : 방에 참가해있는 유저들의 번호를 List형태로 넘겨주시면 됩니다.")
-	public ResponseEntity startGame(@RequestBody StartRoomRequest request) {
+	public ResponseEntity<SuccessResponse> startGame(@RequestBody StartRoomRequest request) {
 		gameInfoService.startGame(request);
 		return ResponseEntity.ok(new SuccessResponse("게임 실행 완료"));
 	}
