@@ -111,7 +111,9 @@ public class LogScheduler {
 
 			//유저 활동 테이블 갱신
 			userActivity.get().changeEscapeAndDeathCnt(clearLog.isCleared());
-			userActivity.get().checkTimeToChange(clearLog.getSpentTime());
+			if(clearLog.isCleared()){
+				userActivity.get().checkTimeToChange(clearLog.getSpentTime());
+			}
 			userActivity.get().increaseMonsterKills(normalCnt, eliteCnt);
 			userActivity.get().increaseItemCraftedCnt(craftCount);
 			userActivity.get().increaseQuestCompletedCnt(questCnt);
