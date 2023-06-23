@@ -28,7 +28,7 @@
                                 <span> {{ notice.noticeDate }} </span>
                             </div>
                         </div>
-                        <div class="mt-5 detail-content" style="white-space: pre-line">
+                        <div class="mt-5 detail-content" style="white-space: pre-wrap">
                             {{ notice.noticeContent }}
                         </div>
                     </b-col>
